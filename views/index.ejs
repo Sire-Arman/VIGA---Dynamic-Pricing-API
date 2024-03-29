@@ -1,0 +1,88 @@
+<%- include("partials/header.ejs") -%> 
+
+<div class="container">
+  <% if(err.length >0) {%>
+    <div class="alert">
+      <span class="closebtn">&times;</span>
+      <strong> <%= err %></strong>
+    </div>
+    
+    <!-- <div class="alert success">
+      <span class="closebtn">&times;</span>
+      <strong>Success!</strong> Indicates a successful or positive action.
+    </div> -->
+    <%}%>
+  <h1>Check Price</h1>
+  <form id="checkPrice" action="/check" method="post">
+    <input type="text" id="zone" name="zone" placeholder="Zone" required />
+    <input
+      type="text"
+      id="organization_id"
+      name="organization_id"
+      placeholder="Organisation id"
+      required
+    />
+    <input
+      type="text"
+      id="total_distance"
+      name="total_distance"
+      placeholder="Total Distance"
+      required
+    />
+    <h3> Items</h3>
+    <small> Please select any of the following items:</small>
+    <br>
+    <% for( let index = 0; index < allItems.length; index++ ) { %>
+      <input type="radio" id= <%= allItems[index].id %> name="description" value=<%= allItems[index].description %> />
+      <label style="padding: 10px 0px" for="<%= allItems[index].id %>"><%= allItems[index].description %></label><br />
+    <% } %>
+    <% console.log(allItems) %>
+    
+    <!-- <input
+      type="text"
+      id="description"
+      name="description"
+      placeholder="Item Description"
+      required
+    />
+     -->
+     <h3> Item Type:</h3>
+     <small> Please select one of the following:</small>
+     <br>
+    <input type="radio" id="perishable" name="itemType" value="perishable" />
+    <label for="perishable">Perishable</label><br />
+    <input
+      type="radio"
+      id="nonPerishable"
+      name="itemType"
+      value="nonPerishable"
+    />
+    <label for="nonPerishable">Non-Perishable</label><br /><br />
+    <button type="submit">Check Price</button>
+  </form>
+</div>
+<div class="container">Price: <%= price %></div>
+<div class = "extra_btns">
+  <form action="/add_organization" method="get">
+    <button type="submit">Add Organization</button>
+  </form>
+  <form action="/add_item" method="get">
+    <button type="submit">Add Item</button>
+  </form>
+</div>
+
+<script>
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function () {
+        div.style.display = "none";
+      }, 600);
+    };
+  }
+</script>
+<%- include("partials/footer.ejs") -%>

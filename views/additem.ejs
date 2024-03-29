@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") -%> 
+<div class="container">
+    <h2>Item Information Form</h2>
+  
+    <form action="/submit_item" method="POST">
+      <label for="type">Item Type:</label><br>
+      <input type="radio" id="perishable" name="type" value="perishable" />
+        <label for="perishable">Perishable</label><br />
+        <input
+        type="radio"
+        id="non-perishable"
+        name="type"
+        value="non-perishable"
+        />
+    <label for="non-perishable">Non-Perishable</label><br /><br />
+  
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+  
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <%- include("partials/footer.ejs") -%>

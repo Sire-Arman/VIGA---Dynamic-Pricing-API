@@ -1,0 +1,11 @@
+<%- include("partials/header.ejs") -%> 
+<div class="container">
+    <h2>Organisation Registration Form</h2>
+  
+    <form action="/submit_organization" method="POST">
+      <label for="name">Organisation Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <%- include("partials/footer.ejs") -%>
