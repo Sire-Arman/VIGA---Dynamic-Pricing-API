@@ -3,11 +3,12 @@ import Express from "express";
 import bodyParser from "body-parser";
 import ejs from 'ejs';
 import pg from "pg";
+import path from 'path';
 
 // global variables declaration
 const port = 3000;
 const app = Express();
-const _dir_name_ = "";
+const _dir_name_ = "D:/Projects/VIGA - Frontend/";
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
@@ -21,8 +22,10 @@ db.connect();
 
 
 // Necessary inclusives
+app.set('view engine','ejs');
+app.set('views','D:/Projects/VIGA - Frontend/views')
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(Express.static(_dir_name_+"public"));
+app.use(Express.static(path.join(_dir_name_,"public")));
 // app.engine('html', ejs.renderFile);
 // app.set('view engine', 'html');
 
