@@ -23,9 +23,10 @@ db.connect();
 
 // Necessary inclusives
 app.set('view engine','ejs');
-app.set('views','D:/Projects/VIGA - Frontend/views')
+// app.set('views','D:/Projects/VIGA - Frontend/views')
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(Express.static(path.join(_dir_name_,"public")));
+// app.use(Express.static(path.join(_dir_name_,"public")));
+app.use(Express.static("public"));
 // app.engine('html', ejs.renderFile);
 // app.set('view engine', 'html');
 
