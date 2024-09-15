@@ -21,3 +21,4 @@ create table Pricing(
 	km_price decimal(6,2),
 	fix_price decimal(7,2)
 );
+
